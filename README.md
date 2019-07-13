@@ -15,6 +15,17 @@ func totalWithTax() {
 
 }
 ```
+```
+let itemCost = 45.0
+let nyTax = 0.08775
+
+func totalWithTax() {
+var taxAmnt = itemCost * nyTax
+print(taxAmnt + itemCost)
+}
+
+totalWithTax()
+```
 
 Then, modify the function you implemented to have a return type of `Int`, and use an external name that looks more readable. Function calls should look something like "total cost of the item after tax"
 
@@ -26,12 +37,27 @@ Convert the the following if/else statement below into function with a `String` 
 let todaysTemperature = 72
 
 if todaysTemperature <= 40 {
-    print("It's cold out.")
+print("It's cold out.")
 } else if todaysTemperature >= 85 {
-    print("It's really warm.")
+print("It's really warm.")
 } else {
-    print("Weather is moderate.")
+print("Weather is moderate.")
 }
+```
+```
+let todaysTemperature = 72
+
+func weatherReport () -> String{
+if todaysTemperature <= 40 {
+return "It's cold out."
+} else if todaysTemperature >= 85 {
+return "It's really warm."
+} else {
+return "Weather is moderate."
+}
+}
+
+print(weatherReport())
 ```
 
 
@@ -47,6 +73,19 @@ Input: `min2(a:1, b:2)`
 
 Output: `1`
 
+```
+func min2 (a: Int, b: Int) -> Int{
+if a > b {
+return b
+}
+else{
+return a
+}
+}
+
+print(min2(a: 1, b: 2))
+```
+
 
 ## Question 4
 
@@ -60,10 +99,35 @@ Input: `lastDigit(12345)`
 
 Output: `5`
 
+```
+func lastDigit(_ number: Int) -> Int{
+return number % 10
+}
+
+print(lastDigit(12345))
+```
+```
+func lastDigit(_ number: Int) -> Int{
+return number % 10
+}
+
+print(lastDigit(12345))
+```
+
 
 ## Question 5
 
 Write a function that takes in any two positive integers and return the sum.
+
+```
+func positiveSum (a: Int, b: Int) -> Int? {
+if a >= 0 && b >= 0 {
+return a + b
+}
+return nil
+}
+print(positiveSum(a: 4, b: -5))
+```
 
 
 ## Question 6
@@ -79,6 +143,29 @@ Write a function takes in any number grade and returns a corresponding letter gr
 | 65 - 69 | D |
 | Below 65 | F |
 
+```
+func gradeMe ( studentGrade: Int) -> String{
+if studentGrade >= 100 {
+return "A+"
+}
+if studentGrade >= 90 {
+return "A"
+}
+if studentGrade >= 80 {
+return "B"
+}
+if studentGrade >= 70 {
+return "C"
+}
+if studentGrade >= 65 {
+return "D"
+}
+return "F"
+}
+
+print(gradeMe(studentGrade: 100))
+
+```
 
 ## Question 7
 
@@ -86,6 +173,22 @@ Make a calculator function that takes in three parameters (two numbers and one o
 
 Operator parameter: (+, -, x, /)
 
+```
+func myCalc (a: Int, opt: String, b: Int ) -> Int{
+if opt == "x"{
+return a * b
+}
+if opt == "+"{
+return a + b
+}
+if opt == "-"{
+return a - b
+}
+return a / b
+}
+
+print(myCalc(a: 4, opt: "/", b: 6))
+```
 
 ## Question 8
 
@@ -99,6 +202,17 @@ let tipPercentage = 0.15
 
 let myFinalCost = totalWithTip() //Fill in the arguments
 ```
+```
+let mealCost = 45
+let tipPercentage = 0.15
+
+func tipping (mealCost: Double, tipPercentage: Double) -> Double{
+let tipAmount = mealCost * tipPercentage
+let myFinalCost = tipAmount + mealCost
+return myFinalCost
+}
+print(tipping(mealCost: 45, tipPercentage: 0.15))
+```
 
 Write a function that will print out **total cost after tip and tax.**
 
@@ -108,6 +222,19 @@ let taxPercentage = 0.09
 //Write your code below
 
 let myFinalCostWithTipAndTax = totalWithTipAndTax() //Fill in the arguments in function
+```
+```
+let taxPercentage = 0.09
+
+func myFinalCostWithTipAndTax (mealPrice: Double, tipPercent: Double, taxPercentage: Double) -> Double{
+var findingTax = mealPrice * taxPercentage
+var totalMeal = mealPrice + findingTax
+var findingTip = totalMeal * tipPercent
+var finalMealTotal = totalMeal + findingTip
+return finalMealTotal
+}
+
+print(myFinalCostWithTipAndTax(mealPrice: 80.90, tipPercent: 0.18, taxPercentage: 0.09))
 ```
 
 
@@ -119,6 +246,16 @@ Example:
 Input: `repeatPrint(message: "+", count: 10)`
 
 Output: `++++++++++`
+
+```
+func repeatPrint (message: String, count: Int){
+for i in 1...count{
+print(message)
+}
+}
+repeatPrint(message: "hello", count: 10)
+
+```
 
 
 ## Question 10
